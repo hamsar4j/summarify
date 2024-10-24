@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        width: 400px;
+        padding: 10px;
+        font-family: Arial, sans-serif;
+      }
+      #summarise {
+        width: 100%;
+        padding: 8px;
+        background-color: #0060df;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      #summarise:hover {
+        background-color: #0250bb;
+      }
+      #summary {
+        margin-top: 15px;
+        white-space: pre-wrap;
+        max-height: 400px;
+        overflow-y: auto;
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 10px;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+      }
+      .loading {
+        color: #666;
+        font-style: italic;
+      }
+      .error {
+        color: #ff0000;
+        background-color: #fff0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="summarise">Summarise Page</button>
+    <div id="summary"></div>
+    <script type="module" src="summarise_text.js"></script>
+  </body>
+</html>
