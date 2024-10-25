@@ -1,4 +1,7 @@
 import { summariseText, getMainContent } from "../content_scripts/summarify.js";
+const clipboardIcon = "../icons/clipboard_icon.svg";
+const copiedIcon = "../icons/copied_icon.svg";
+const copyBtn = document.getElementById("copyBtn");
 
 document.getElementById("summarise").addEventListener("click", async () => {
   const summaryDiv = document.getElementById("summary");
@@ -31,5 +34,25 @@ document.getElementById("summarise").addEventListener("click", async () => {
     summaryDiv.className = "error";
   } finally {
     button.disabled = false;
+  }
+});
+
+document.getElementById("copyBtn").addEventListener("click", () => {
+  const summaryDiv = document.getElementById("summary");
+
+  if (summaryDiv.textContent) {
+    navigator.clipboard
+      .writeText(summaryDiv.textContent)
+      .then(() => {
+        // alert("Copied!");
+        const img = copyBtn.querySelector("img");
+        img.src = copiedIcon;
+        setTimeout(() => {
+          img.src = clipboardIcon;
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error("Copy failed:", error);
+      });
   }
 });
