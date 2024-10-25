@@ -8,7 +8,7 @@ document.getElementById("summarise").addEventListener("click", async () => {
   const button = document.getElementById("summarise");
 
   button.disabled = true;
-  summaryDiv.textContent = "Extracting Text and Summarising...";
+  summaryDiv.textContent = "Summarising...";
   summaryDiv.className = "loading";
 
   try {

@@ -47,7 +47,7 @@ export async function summariseText(text) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "llama3.2:3b-instruct-fp16",
+        model: "llama3.2:latest",
         prompt: `You are a helpful assistant that summarises text. Create a concise summary that captures the main points. Please summarise the following text: ${text}`,
         stream: false,
       }),
