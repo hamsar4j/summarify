@@ -9,3 +9,6 @@ launchctl setenv OLLAMA_ORIGINS "*"
 ollama pull {model_name}
 ollama serve
 ```
+
+### demo
+![](https://github.com/hamsar4j/summarify/blob/main/media/summarify_demo.gif)
