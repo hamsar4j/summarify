@@ -1,8 +1,6 @@
-![](https://github.com/hamsar4j/summarify/public/summarify.png)
+![](https://github.com/hamsar4j/summarify/blob/main/public/summarify.png)
 
-# Summarify
-
-This is a web extension that can be used to summarise webpages quickly using local LLMs, created with Vite and TailwindCSS.
+Summarify is a web extension that can be used to summarise webpages quickly using local LLMs, created with Vite and TailwindCSS.
 
 ### ollama setup
 
