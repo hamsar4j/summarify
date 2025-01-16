@@ -1,7 +1,6 @@
 import { useState } from "react";
 import summarifyLogo from "/summary_icon_48.png";
 import { summariseText, getMainContent } from "./summarify.tsx";
-import "./App.css";
 
 function App() {
   const [summary, setSummary] = useState<string | null>(null);
@@ -71,29 +70,52 @@ function App() {
   };
 
   return (
-    <>
-      <div>
-        <a>
-          <img src={summarifyLogo} className="logo" alt="Summarify logo" />
-        </a>
+    <div className="w-80 p-4 bg-white shadow-lg rounded-lg text-gray-800">
+      <div className="flex justify-center mb-4">
+        <img src={summarifyLogo} className="w-16 h-16" alt="Summarify logo" />
       </div>
-      <h1>Summarify</h1>
-      <div className="card">
-        <button onClick={handleSummarize} disabled={loading}>
+      <h1 className="text-xl font-semibold text-center mb-3">Summarify</h1>
+      <div className="flex justify-center mb-3">
+        <button
+          onClick={handleSummarize}
+          disabled={loading}
+          className={`w-full py-2 rounded-md text-white font-medium ${
+            loading
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-500 hover:bg-blue-600"
+          }`}
+        >
           {loading ? "Summarising..." : "Summarise Page"}
         </button>
       </div>
-      {error && <div className="error">{error}</div>}
-      {summary && <div id="summary">{summary}</div>}
-      <button
-        id="copyBtn"
-        title="Copy to clipboard"
-        onClick={handleCopy}
-        disabled={!summary}
-      >
-        <img src="clipboard_icon.svg" alt="Copy Icon" width="16" height="16" />
-      </button>
-    </>
+      {error && (
+        <div className="text-sm text-red-500 text-center mb-3">{error}</div>
+      )}
+      {summary && (
+        <div
+          id="summary"
+          className="text-sm p-2 bg-gray-100 rounded-md shadow-inner mb-3 h-32 overflow-y-auto"
+        >
+          {summary}
+        </div>
+      )}
+      <div className="flex justify-center">
+        <button
+          id="copyBtn"
+          title="Copy to clipboard"
+          onClick={handleCopy}
+          disabled={!summary}
+          className={`flex items-center gap-2 p-2 rounded-md font-medium ${
+            summary
+              ? "bg-green-500 text-white hover:bg-green-600"
+              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+          }`}
+        >
+          <img src="clipboard_icon.svg" alt="Copy Icon" className="w-5 h-5" />
+          Copy
+        </button>
+      </div>
+    </div>
   );
 }
 

@@ -39,7 +39,7 @@ export function getMainContent(): string {
 }
 
 export async function summariseText(text: string): Promise<string> {
-  const ip = "0.0.0.0"; // Replace with the actual API IP address.
+  const ip = "0.0.0.0";
   const port = 11434;
   try {
     const response = await fetch(`http://${ip}:${port}/api/generate`, {
