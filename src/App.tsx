@@ -1,5 +1,4 @@
 import { useState } from "react";
-import summarifyLogo from "/summarify.png";
 import { summariseText, getMainContent } from "./summarify.tsx";
 
 function App() {
@@ -73,19 +72,23 @@ function App() {
   };
 
   return (
-    <div className="w-80 p-4 bg-[#deedf2] shadow-lg rounded-lg text-gray-800">
+    <div className="font-dm-sans w-96 h-76 p-4 bg-[#202733] shadow-lg rounded-xl text-white">
+      <h1 className="text-3xl font-semibold text-center mb-3">summarify</h1>
       <div className="flex justify-center mb-4">
-        <img src={summarifyLogo} className="rounded-lg" alt="Summarify logo" />
+        <img
+          src="summarize_icon.svg"
+          className="rounded-xl bg-white"
+          alt="Summarise Icon"
+        />
       </div>
-      {/* <h1 className="text-xl font-semibold text-center mb-3">summarify</h1> */}
-      <div className="flex justify-center mb-3">
+      <div className="flex justify-center pt-3 mb-3 text-lg">
         <button
           onClick={handleSummarize}
           disabled={loading}
-          className={`w-full py-2 rounded-md text-white font-medium ${
+          className={`w-full py-2 rounded-md text-white ${
             loading
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-600"
+              : "bg-[#175cdc] hover:bg-[#175cdc]"
           }`}
         >
           {loading ? "Summarising..." : "Summarise Page"}
@@ -97,12 +100,12 @@ function App() {
       {summary && (
         <div
           id="summary"
-          className="text-sm p-2 bg-gray-100 rounded-md shadow-inner mb-3 h-32 overflow-y-auto"
+          className="text-sm p-2 bg-[#121a28] rounded-md shadow-inner mb-3 h-32 overflow-y-auto"
         >
           {summary}
         </div>
       )}
-      <div className="flex justify-center">
+      <div className="flex justify-center pt-3">
         <button
           id="copyBtn"
           title="Copy to clipboard"
@@ -110,8 +113,8 @@ function App() {
           disabled={!summary}
           className={`flex items-center gap-2 p-2 rounded-md font-medium ${
             summary
-              ? "bg-[#ef5252] text-white hover:bg-[#f33550]"
-              : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              ? "bg-[#ffbe00] text-white hover:bg-[#ffbe00]"
+              : "bg-[#121a28] text-gray-500 cursor-not-allowed"
           }`}
         >
           <img
@@ -119,7 +122,6 @@ function App() {
             alt={copied ? "Copied Icon" : "Copy Icon"}
             className="w-5 h-5"
           />
-          {copied ? "Copied" : "Copy"}
         </button>
       </div>
     </div>
