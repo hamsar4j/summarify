@@ -1,5 +1,5 @@
 import { useState } from "react";
-import summarifyLogo from "/summary_icon_48.png";
+import summarifyLogo from "/summarify.png";
 import { summariseText, getMainContent } from "./summarify.tsx";
 
 function App() {
@@ -70,11 +70,11 @@ function App() {
   };
 
   return (
-    <div className="w-80 p-4 bg-white shadow-lg rounded-lg text-gray-800">
+    <div className="w-80 p-4 bg-[#deedf2] shadow-lg rounded-lg text-gray-800">
       <div className="flex justify-center mb-4">
-        <img src={summarifyLogo} className="w-16 h-16" alt="Summarify logo" />
+        <img src={summarifyLogo} className="rounded-lg" alt="Summarify logo" />
       </div>
-      <h1 className="text-xl font-semibold text-center mb-3">Summarify</h1>
+      {/* <h1 className="text-xl font-semibold text-center mb-3">summarify</h1> */}
       <div className="flex justify-center mb-3">
         <button
           onClick={handleSummarize}
@@ -107,7 +107,7 @@ function App() {
           disabled={!summary}
           className={`flex items-center gap-2 p-2 rounded-md font-medium ${
             summary
-              ? "bg-green-500 text-white hover:bg-green-600"
+              ? "bg-[#ef5252] text-white hover:bg-[#f33550]"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
