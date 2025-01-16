@@ -12,4 +12,4 @@ ollama serve
 
 ### demo
 
-<!-- ![](https://github.com/hamsar4j/summarify/blob/main/media/summarify_demo.gif) -->
+![](https://github.com/hamsar4j/summarify/blob/main/public/summarify_demo.mov)

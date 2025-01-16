@@ -6,6 +6,7 @@ function App() {
   const [summary, setSummary] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   const handleSummarize = async () => {
     setLoading(true);
@@ -61,7 +62,9 @@ function App() {
       navigator.clipboard
         .writeText(summary)
         .then(() => {
-          alert("Copied!");
+          setCopied(true);
+          console.log("Copied!");
+          setTimeout(() => setCopied(false), 2000);
         })
         .catch((error) => {
           console.error("Copy failed:", error);
@@ -111,8 +114,12 @@ function App() {
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
-          <img src="clipboard_icon.svg" alt="Copy Icon" className="w-5 h-5" />
-          Copy
+          <img
+            src={copied ? "copied_icon.svg" : "clipboard_icon.svg"}
+            alt={copied ? "Copied Icon" : "Copy Icon"}
+            className="w-5 h-5"
+          />
+          {copied ? "Copied" : "Copy"}
         </button>
       </div>
     </div>
