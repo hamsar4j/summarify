@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { summariseText, getMainContent } from "./summarify.tsx";
+import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import SummarizeRoundedIcon from "@mui/icons-material/SummarizeRounded";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function App() {
   const [summary, setSummary] = useState<string | null>(null);
@@ -73,14 +77,10 @@ function App() {
 
   return (
     <div className="font-dm-sans w-96 h-76 p-4 bg-[#202733] shadow-lg rounded-xl text-white">
-      <h1 className="text-3xl font-semibold text-center mb-3">summarify</h1>
-      <div className="flex justify-center mb-4">
-        <img
-          src="summarize_icon.svg"
-          className="rounded-xl bg-white"
-          alt="Summarise Icon"
-        />
-      </div>
+      <h1 className="flex justify-center mb-4">
+        <SummarizeRoundedIcon className="rounded-3xl mt-2 mr-2" />
+        <div className="text-3xl font-semibold text-center mb-3">summarify</div>
+      </h1>
       <div className="flex justify-center pt-3 mb-3 text-lg">
         <button
           onClick={handleSummarize}
@@ -91,7 +91,14 @@ function App() {
               : "bg-[#175cdc] hover:bg-[#175cdc]"
           }`}
         >
-          {loading ? "Summarising..." : "Summarise Page"}
+          {loading ? (
+            <div className="flex items-center justify-center gap-2">
+              <CircularProgress size={20} className="text-white" />
+              Summarising...
+            </div>
+          ) : (
+            "Summarise Page"
+          )}
         </button>
       </div>
       {error && (
@@ -113,15 +120,15 @@ function App() {
           disabled={!summary}
           className={`flex items-center gap-2 p-2 rounded-md font-medium ${
             summary
-              ? "bg-[#ffbe00] text-white hover:bg-[#ffbe00]"
+              ? "bg-[#ce93d9] text-white hover:bg-[#ce93d9]"
               : "bg-[#121a28] text-gray-500 cursor-not-allowed"
           }`}
         >
-          <img
-            src={copied ? "copied_icon.svg" : "clipboard_icon.svg"}
-            alt={copied ? "Copied Icon" : "Copy Icon"}
-            className="w-5 h-5"
-          />
+          {copied ? (
+            <CheckCircleRoundedIcon className="w-5 h-5" />
+          ) : (
+            <ContentCopyRoundedIcon className="w-5 h-5" />
+          )}
         </button>
       </div>
     </div>

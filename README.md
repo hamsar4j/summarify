@@ -14,4 +14,6 @@ ollama serve
 
 ![](https://github.com/hamsar4j/summarify/blob/main/public/screenshot_main.png)
 
+![](https://github.com/hamsar4j/summarify/blob/main/public/screenshot_loading.png)
+
 ![](https://github.com/hamsar4j/summarify/blob/main/public/screenshot_text.png)
