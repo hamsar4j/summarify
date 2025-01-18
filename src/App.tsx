@@ -76,18 +76,18 @@ function App() {
   };
 
   return (
-    <div className="font-dm-sans w-96 h-76 p-4 bg-[#202733] shadow-lg rounded-xl text-white">
-      <h1 className="flex justify-center mb-4">
-        <SummarizeRoundedIcon className="rounded-3xl mt-2 mr-2" />
-        <div className="text-3xl font-semibold text-center mb-3">summarify</div>
+    <div className="h-76 w-96 rounded-xl bg-[#202733] p-4 font-dm-sans text-white shadow-lg">
+      <h1 className="mb-4 flex justify-center">
+        <SummarizeRoundedIcon className="mr-2 mt-2 rounded-3xl" />
+        <div className="mb-3 text-center text-3xl font-semibold">summarify</div>
       </h1>
-      <div className="flex justify-center pt-3 mb-3 text-lg">
+      <div className="mb-3 flex justify-center pt-3 text-lg">
         <button
           onClick={handleSummarize}
           disabled={loading}
-          className={`w-full py-2 rounded-md text-white ${
+          className={`w-full rounded-md py-2 text-white ${
             loading
-              ? "bg-gray-400 cursor-not-allowed"
+              ? "cursor-not-allowed bg-gray-400"
               : "bg-[#175cdc] hover:bg-[#175cdc]"
           }`}
         >
@@ -102,12 +102,12 @@ function App() {
         </button>
       </div>
       {error && (
-        <div className="text-sm text-red-500 text-center mb-3">{error}</div>
+        <div className="mb-3 text-center text-sm text-red-500">{error}</div>
       )}
       {summary && (
         <div
           id="summary"
-          className="text-sm p-2 bg-[#121a28] rounded-md shadow-inner mb-3 h-32 overflow-y-auto"
+          className="mb-3 h-32 overflow-y-auto rounded-md bg-[#121a28] p-2 text-sm shadow-inner"
         >
           {summary}
         </div>
@@ -118,16 +118,16 @@ function App() {
           title="Copy to clipboard"
           onClick={handleCopy}
           disabled={!summary}
-          className={`flex items-center gap-2 p-2 rounded-md font-medium ${
+          className={`flex items-center gap-2 rounded-md p-2 font-medium ${
             summary
               ? "bg-[#ce93d9] text-white hover:bg-[#ce93d9]"
-              : "bg-[#121a28] text-gray-500 cursor-not-allowed"
+              : "cursor-not-allowed bg-[#121a28] text-gray-500"
           }`}
         >
           {copied ? (
-            <CheckCircleRoundedIcon className="w-5 h-5" />
+            <CheckCircleRoundedIcon className="h-5 w-5" />
           ) : (
-            <ContentCopyRoundedIcon className="w-5 h-5" />
+            <ContentCopyRoundedIcon className="h-5 w-5" />
           )}
         </button>
       </div>

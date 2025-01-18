@@ -21,7 +21,7 @@ export function getMainContent(): string {
   });
 
   let mainContent = bodyClone.querySelector(
-    'main, article, [role="main"], .content, #content, .post, .article'
+    'main, article, [role="main"], .content, #content, .post, .article',
   ) as HTMLElement;
 
   if (!mainContent || mainContent.textContent?.trim().length === 0) {
