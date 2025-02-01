@@ -49,7 +49,7 @@ export async function summariseText(text: string): Promise<string> {
       },
       body: JSON.stringify({
         model: "llama3.2:latest",
-        prompt: `You are a helpful assistant that summarises text. Create a concise summary that captures the main points. Please summarise the following text: ${text}`,
+        prompt: `Summarize the following text in a concise manner. Output only the summary—do not include any introductions, explanations, or extra words.\n\nText: ${text}`,
         stream: false,
       }),
     });
