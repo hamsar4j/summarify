@@ -58,7 +58,3 @@ Summarify leverages Ollama to run LLMs locally. Follow these steps to set it up:
 ![](https://github.com/hamsar4j/summarify/blob/main/public/screenshot_loading.png)
 
 ![](https://github.com/hamsar4j/summarify/blob/main/public/screenshot_text.png)
-
-```
-
-```
